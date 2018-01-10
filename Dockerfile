@@ -10,8 +10,10 @@ RUN useradd -c 'PocketMine-MP' --home /pocketmine pocketmine
 RUN passwd -l pocketmine
 
 WORKDIR /pocketmine
-RUN mkdir -p /pocketmine/PocketMine-MP
+RUN mkdir -p /pocketmine/PocketMine-MP/mapped
 RUN chown -R pocketmine /pocketmine
+
+VOLUME /pocketmine/PocketMine-MP/mapped
 
 COPY assets/server.properties /pocketmine/server.properties.original
 COPY assets/entrypoint.sh /pocketmine/entrypoint.sh
